@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random hex color</title>
+    <style>
+        .container{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+        h2{
+            font-size: 50px;
+            text-transform: uppercase;
+        }
+        .btn{
+            width:100%;
+            background-color: black;
+            color:white;
+            padding: 20px;
+            font-size: 30px;
+            border: none;
+            outline: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>the hex color : <span id="hex"></span></h2>
+        <button class="btn">click here to change colors</button>
+    </div>
+
+    <script>
+        let number = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G'];
+        let hexcolor = document.getElementById('hex');
+        let btn = document.getElementById('btn');
+        document.addEventListener('click',function(){
+            let hexbtn = "#";
+            for(let i=0;i<6;i++){
+                let random = Math.floor(Math.random()*number.length);
+            hexbtn += number[random];
+            }
+           document.body.style.backgroundColor =hexbtn;
+            hexcolor.innerHTML =hexbtn;
+        })
+    </script>
+</body>
+</html>
